@@ -1,0 +1,188 @@
+/* DASHBOARD */
+.dashboard {
+  display: flex;
+  background: #f7f6fa;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: #0d28a6;
+  padding-top: 18px;
+}
+.sidebar-logo {
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0;
+}
+.sidebar-menu {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sidebar-menu div {
+  padding-top: 10px;
+  padding-right: 4px;
+  padding-left: 4px;
+}
+.sidebar-menu .dashboard-menu {
+  background: rgba(255, 255, 255, 0.3);
+  font-weight: 700;
+}
+.sidebar-menu a {
+  display: flex;
+  text-decoration: none;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+}
+.sidebar-menu p {
+  font-size: 12px;
+}
+
+/* SIDEBAR2 */
+.sidebar2 {
+  min-width: 220px;
+  background-color: white;
+  padding-top: 18px;
+}
+.header-logo {
+  width: fit-content;
+  margin-left: 24px;
+  margin-bottom: 52pz;
+}
+.sidebar2-p div:nth-child(1) h5 {
+  font-weight: 700;
+  color: #8a8a8a;
+  margin-bottom: 19px;
+  padding-left: 24px;
+}
+.sidebar2-name {
+  font-weight: 700;
+  background-color: #cfd4ed;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  padding-left: 24px;
+}
+
+/* CONTENT1 */
+.content1 {
+  width: 100%;
+}
+
+/* HEADER */
+.container-header {
+  width: auto;
+  padding: 0 !important;
+  margin-right: 30px !important;
+}
+Form .nav-form {
+  width: 174px;
+  border-radius: 0;
+}
+Form button {
+  background-color: white;
+  color: #0d28a6;
+  border: 1px solid #0d28a6;
+  border-radius: 0;
+  font-weight: 700;
+}
+#dropdown-basic-button {
+  background-color: white;
+  border: none;
+  color: black;
+}
+Nav img {
+  margin-left: 24px;
+}
+
+/* content */
+.content {
+  padding-top: 32px;
+  padding-left: 25px;
+  width: 100%;
+}
+.navigation {
+  display: inline-flex;
+}
+.navigation p:last-child {
+  font-weight: 300;
+  color: #222222;
+}
+.navigation p {
+  margin-right: 10px;
+  font-weight: 700;
+}
+.barchart-des {
+  display: flex;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+.barchart-des h4 {
+  margin-left: 8px;
+  font-weight: 700;
+}
+.barchart-shift {
+  margin-bottom: 55px;
+}
+.barchart-input {
+  border-radius: 2px 0px 0px 2px;
+  color: black;
+  padding: 9px 12px;
+}
+.barchart-shift button {
+  border-radius: 0px 2px 2px 0px;
+  background-color: #0d28a6;
+  color: white;
+  font-weight: 700;
+  padding: 8px 12px;
+}
+
+.barchart-main1 {
+  display: flex;
+  margin-right: 13px;
+}
+.barchart-main div p {
+  writing-mode: tb-rl;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(180deg);
+}
+.barchart-main div:first-child {
+  display: flex;
+  align-items: center;
+}
+.barchart div:nth-child(2) p:last-child {
+  text-align: center;
+}
+.diagram {
+  width: 1150px !important;
+}
+
+/* FOR BAR CHART and TABLE */
+
+.table {
+  margin-top: 85px;
+}
+.table-description h3 {
+  font-weight: 700;
+}
+.table-description div {
+  margin-bottom: 16px;
+  display: flex;
+  height: fit-content;
+}
+.table-description p {
+  margin-left: 8px;
+  font-weight: 700;
+  padding: 0 !important;
+}
+.table-description div div {
+  padding: 0;
+  margin-bottom: 0;
+}

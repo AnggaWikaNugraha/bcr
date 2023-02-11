@@ -1,0 +1,68 @@
+/* ADD CAR */
+.addcar {
+  background-color: #f7f6fa;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+
+/* SIDEBAR2 */
+
+/* CONTENT */
+.content1 {
+  height: auto;
+}
+
+.addcar-feature h3 {
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.navig {
+  display: inline-flex;
+}
+.navig p {
+  margin-right: 10px;
+  font-weight: 700;
+}
+.navig a {
+  text-decoration: none;
+  color: black;
+}
+.navig p:nth-child(5) {
+  font-weight: 300 !important;
+  color: #222 !important;
+}
+.inputs {
+  background-color: white;
+  padding: 16px;
+  width: 97%;
+}
+.inputs form {
+  font-size: 12px;
+  color: #3c3c3c;
+}
+.inputs div {
+  margin-bottom: 16px;
+}
+.inputs label {
+  width: 147px;
+  margin-right: 8px;
+}
+.inputs input,
+.input-category select {
+  font-size: 12px;
+  padding: 9px 12px;
+  border-radius: 2px;
+  width: 339px;
+  border: 1px solid #3c3c3c;
+}
+.add-button button {
+  padding: 8px 12px;
+}
+.add-button button:last-child {
+  background: #0d28a6;
+  border-radius: 2px;
+  color: white;
+  margin-left: 16px;
+}

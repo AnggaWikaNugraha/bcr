@@ -1,0 +1,84 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container-signin {
+  min-width: 100vw;
+  padding: 0 !important;
+  display: flex;
+  background-color: #0d28a6;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.container-signin .div-form {
+  background-image: url(../assets/SigninImg.png);
+  width: 80%;
+  height: 100vh;
+}
+
+.container-signin .div-text {
+  height: 100vh;
+  width: 40%;
+  background-color: rgb(255, 255, 255);
+}
+
+.div-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signBox {
+  width: 80%;
+}
+
+.header h1 {
+  font-family: Arial;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-top: 20px;
+}
+
+.login {
+  font: "arial";
+  /* width: 270px; */
+  /* margin-left: ; */
+}
+
+.login .login-email label {
+  font-family: Arial;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.login-pass {
+  margin-top: 16px;
+  margin-bottom: 32px;
+}
+.inpt {
+  width: -webkit-fill-available;
+  color: #a5a5a5;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+label {
+  margin-bottom: 9px;
+}
+.sign-in {
+  width: -webkit-fill-available;
+  justify-content: center;
+  padding: 8px 12px;
+  color: #ffff;
+  background: #0d28a6;
+  border: none;
+}

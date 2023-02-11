@@ -1,0 +1,121 @@
+/* LIST CARS */
+.listcars {
+  background-color: #f7f6fa;
+  display: flex;
+  height: 100%;
+  min-height: 100vh;
+  flex-direction: row;
+}
+
+.bars {
+  display: flex;
+  flex-direction: row;
+  height: 100% !important;
+}
+
+/* SIDEBAR */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: #0d28a6;
+  min-width: 70px;
+  padding-top: 18px;
+}
+.sidebar-logo {
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0;
+}
+.sidebar-menu {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sidebar-menu .listcars-menu {
+  padding-top: 10px;
+  padding-right: 9px;
+  padding-left: 9px;
+  background: rgba(255, 255, 255, 0.3);
+  font-weight: 700;
+  width: -webkit-fill-available;
+}
+.sidebar-menu a {
+  display: flex;
+  text-decoration: none;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+}
+.sidebar-menu p {
+  font-size: 12px;
+}
+
+/* HEADER */
+.navbar {
+  display: flex;
+  justify-content: end;
+}
+.container-header {
+  margin-right: 30px !important;
+  width: fit-content !important;
+  padding: 0 !important;
+}
+
+/* SIDEBAR2 */
+.header-logo {
+  margin-bottom: 52px;
+  width: fit-content;
+  margin-left: 24px;
+}
+
+/* CONTENT */
+.navigation {
+  display: inline-flex;
+}
+.navigation p:first-child,
+.navigation p:nth-child(2) {
+  font-weight: 700;
+  margin-right: 10px;
+}
+.navigation p:last-child {
+  font-weight: 300;
+  color: #222222;
+}
+.buttons {
+  margin-bottom: 24px;
+}
+.buttons button {
+  padding: 8px 12px;
+  border: 1px solid #aeb7e1;
+  border-radius: 2px;
+  color: #aeb7e1;
+  margin-right: 16px;
+  font-weight: 700;
+}
+.buttons button:hover {
+  background-color: #cfd4ed;
+  border: 1px solid #0d28a6;
+  color: #0d28a6;
+}
+.active-button {
+  background-color: #cfd4ed !important;
+  border: 1px solid #0d28a6 !important;
+  color: #0d28a6 !important;
+}
+.feature {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-right: 24px;
+}
+.feature h3 {
+  font-weight: 700;
+}
+.feature button {
+  background-color: #0d28a6;
+  padding: 8px 12px;
+  color: white;
+  border: 0;
+  font-weight: 700;
+}

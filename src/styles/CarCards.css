@@ -1,0 +1,49 @@
+.card-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.buttons button {
+  background-color: white;
+}
+
+.car-card {
+  padding: 24px;
+  box-shadow: 0px 0px 4px rgb(0 0 0 / 15%);
+  border-radius: 8px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 351px;
+}
+.car-image img {
+  width: 303px;
+}
+.card-content {
+  margin-top: 16px;
+}
+.card-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 33px;
+  margin-bottom: 24px;
+}
+.card-info img {
+  margin-right: 8px;
+}
+.card-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.card-buttons button {
+  width: 143.5px;
+  padding: 14px;
+  border-radius: 2px;
+  font-weight: 700;
+}
+.on-edit {
+  color: #ffff;
+  border: none;
+  background-color: #5cb85f;
+}

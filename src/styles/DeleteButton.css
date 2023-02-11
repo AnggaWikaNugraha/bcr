@@ -1,0 +1,42 @@
+.on-delete {
+  color: #fa2c5a !important;
+  border: 1px solid #fa2c5a !important;
+  background-color: #fff !important;
+}
+.modal {
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 4px;
+  padding: 24px 32px;
+  width: 387px;
+  display: flex;
+  height: 333px;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: none !important;
+  text-align: center;
+  align-items: center;
+}
+.modal-content button:first-child {
+  margin-right: 16px;
+  padding: 8px 35px;
+  background-color: #0d28a6;
+  color: white;
+  font-weight: 700;
+  border-radius: 2px;
+  border: none;
+}
+.modal-content button:last-child {
+  color: #0d28a6;
+  font-weight: 700;
+  background-color: white;
+  padding: 8px 25px;
+  border-radius: 2px;
+  border: 1px solid #0d28a6;
+}
