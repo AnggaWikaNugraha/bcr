@@ -67,7 +67,7 @@ export function orderTableStateReducer(state = orderTableState, action) {
     case ACTIVITY_ORDERTABLE_REDUCER_SETCURRENT_PAGE:
       return { ...state, currentPage: action.currentPage };
     case ACTIVITY_ORDERTABLE_REDUCER_SETPAGE:
-      return { ...state, setPageSize: action.setPageSize };
+      return { ...state, pageSize: action.setPageSize };
     default:
       return state;
   }
