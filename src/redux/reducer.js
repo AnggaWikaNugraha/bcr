@@ -1,6 +1,7 @@
-import {CarlistStateReducer} from '../redux/reducer/Carlist';
+import {CarlistStateReducer, filterStateReducer} from '../redux/reducer/Carlist';
 
 
 export default {
-  CarlistStateReducer
+  CarlistStateReducer,
+  filterStateReducer,
 };

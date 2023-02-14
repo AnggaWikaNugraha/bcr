@@ -13,6 +13,7 @@ import { Link, useLocation } from "react-router-dom";
 import { message } from "antd";
 import { useDispatch, useSelector } from 'react-redux'
 import { ActCarlist, Searchlist } from "../redux/actions/Carlist";
+import { ACTIVITY_CARLIST_FILTER_ALL, ACTIVITY_CARLIST_FILTER_LARGE, ACTIVITY_CARLIST_FILTER_MEDIUM, ACTIVITY_CARLIST_FILTER_SMALL } from "../redux/type/typeCarlist";
 
 export function convertToLocalCurrrency(number) {
   if (!number) return null;
@@ -74,32 +75,36 @@ const Cards = ({ cars, filterByCategory, onDelete }) => {
 };
 
 const CarCards = () => {
-  const [filterByCategory, setFilterByCategory] = useState("");
-  const [isActive, setIsActive] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [carIdForDelete, setCarIdForDelete] = useState("");
   const [messageApi, contextHolder] = message.useMessage();
   const dispatch = useDispatch()
   const location = useLocation();
   const reducerCarlist = useSelector((state) => state.CarlistStateReducer)
+  const filterStateReducer = useSelector((state) => state.filterStateReducer)
   // console.log(location);
 
   // const { car, payload } = location.state;
-
+  // step 2 panggil dispatch
   function showAll() {
-    setFilterByCategory("");
+    dispatch({
+      type: ACTIVITY_CARLIST_FILTER_ALL,
+    })
   }
   function showSmall() {
-    setFilterByCategory("small");
-    setIsActive(isActive);
+    dispatch({
+      type: ACTIVITY_CARLIST_FILTER_SMALL,
+    })
   }
   function showMedium() {
-    setFilterByCategory("medium");
-    setIsActive(isActive);
+    dispatch({
+      type: ACTIVITY_CARLIST_FILTER_MEDIUM,
+    })
   }
   function showLarge() {
-    setFilterByCategory("large");
-    setIsActive(isActive);
+    dispatch({
+      type: ACTIVITY_CARLIST_FILTER_LARGE,
+    })
   }
 
   React.useEffect(() => {
@@ -129,21 +134,21 @@ const CarCards = () => {
       {contextHolder}
       <div className="CarCards">
         <div className="buttons">
-          <button className={isActive ? "active-button" : null} onClick={showAll}>
+          <button className={filterStateReducer.filter === '' ? "active-button" : null} onClick={showAll}>
             All
           </button>
-          <button className={isActive ? "active-button" : null} onClick={showSmall}>
+          <button className={filterStateReducer.filter === 'small' ? "active-button" : null} onClick={showSmall}>
             2 - 4 people
           </button>
-          <button className={isActive ? "active-button" : null} onClick={showMedium}>
+          <button className={filterStateReducer.filter === 'medium' ? "active-button" : null} onClick={showMedium}>
             4 - 6 people
           </button>
-          <button className={isActive ? "active-button" : null} onClick={showLarge}>
+          <button className={filterStateReducer.filter === 'large' ? "active-button" : null} onClick={showLarge}>
             6 - 8 people
           </button>
         </div>
         <div key="id" className="card-group">
-          <Cards cars={reducerCarlist.data} filterByCategory={filterByCategory} onDelete={onDelete} />
+          <Cards cars={reducerCarlist.data} filterByCategory={filterStateReducer.filter} onDelete={onDelete} />
         </div>
         <Modal className="modal" show={modalOpen} animation={true} centered>
           <ModalBody className="modal-body">

@@ -1,4 +1,4 @@
-import { ACTIVITY_CARLIST_REDUCER_CLEARED_SEARCH, ACTIVITY_CARLIST_REDUCER_FULFILLED, ACTIVITY_CARLIST_REDUCER_FULFILLED_SEARCH, ACTIVITY_CARLIST_REDUCER_PENDING, ACTIVITY_CARLIST_REDUCER_REJECT, ACTIVITY_CARLIST_REDUCER_SEARCH } from "../type/typeCarlist";
+import { ACTIVITY_CARLIST_FILTER_ALL, ACTIVITY_CARLIST_FILTER_LARGE, ACTIVITY_CARLIST_FILTER_MEDIUM, ACTIVITY_CARLIST_FILTER_SMALL, ACTIVITY_CARLIST_REDUCER_CLEARED_SEARCH, ACTIVITY_CARLIST_REDUCER_FULFILLED, ACTIVITY_CARLIST_REDUCER_FULFILLED_SEARCH, ACTIVITY_CARLIST_REDUCER_PENDING, ACTIVITY_CARLIST_REDUCER_REJECT, ACTIVITY_CARLIST_REDUCER_SEARCH } from "../type/typeCarlist";
 
 const CarlistState = {
   isLoading : false,
@@ -19,8 +19,27 @@ export function CarlistStateReducer(state = CarlistState, action) {
       return { ...state, isLoading: false, error: false, search: action.search };
     case ACTIVITY_CARLIST_REDUCER_FULFILLED_SEARCH:
       return { ...state, isLoading: false, status: action.status, data: action.payload };
-      case ACTIVITY_CARLIST_REDUCER_CLEARED_SEARCH:
+    case ACTIVITY_CARLIST_REDUCER_CLEARED_SEARCH:
         return { ...state, search: '' };
+    default:
+      return state;
+  }
+}
+
+// step 1 bikin reducer filter
+const filterState = {
+  filter: ''
+}
+export function filterStateReducer(state = filterState, action) {
+  switch (action.type) {
+    case ACTIVITY_CARLIST_FILTER_ALL:
+        return { ...state, filter: '' };
+    case ACTIVITY_CARLIST_FILTER_SMALL:
+        return { ...state, filter: 'small' };
+    case ACTIVITY_CARLIST_FILTER_MEDIUM:
+        return { ...state, filter: 'medium' };
+    case ACTIVITY_CARLIST_FILTER_LARGE:
+        return { ...state, filter: 'large' };
     default:
       return state;
   }
