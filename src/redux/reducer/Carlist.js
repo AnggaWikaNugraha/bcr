@@ -1,4 +1,4 @@
-import { ACTIVITY_CARLIST_FILTER_ALL, ACTIVITY_CARLIST_FILTER_LARGE, ACTIVITY_CARLIST_FILTER_MEDIUM, ACTIVITY_CARLIST_FILTER_SMALL, ACTIVITY_CARLIST_REDUCER_CLEARED_SEARCH, ACTIVITY_CARLIST_REDUCER_FULFILLED, ACTIVITY_CARLIST_REDUCER_FULFILLED_SEARCH, ACTIVITY_CARLIST_REDUCER_PENDING, ACTIVITY_CARLIST_REDUCER_REJECT, ACTIVITY_CARLIST_REDUCER_SEARCH } from "../type/typeCarlist";
+import { ACTIVITY_CARLIST_FILTER_ALL, ACTIVITY_CARLIST_FILTER_LARGE, ACTIVITY_CARLIST_FILTER_MEDIUM, ACTIVITY_CARLIST_FILTER_SMALL, ACTIVITY_CARLIST_REDUCER_CLEARED_SEARCH, ACTIVITY_CARLIST_REDUCER_FULFILLED, ACTIVITY_CARLIST_REDUCER_FULFILLED_SEARCH, ACTIVITY_CARLIST_REDUCER_PENDING, ACTIVITY_CARLIST_REDUCER_REJECT, ACTIVITY_CARLIST_REDUCER_SEARCH, ACTIVITY_ORDERTABLE_REDUCER_FULFILLED, ACTIVITY_ORDERTABLE_REDUCER_PENDING, ACTIVITY_ORDERTABLE_REDUCER_REJECT, ACTIVITY_ORDERTABLE_REDUCER_SETCURRENT_PAGE, ACTIVITY_ORDERTABLE_REDUCER_SETPAGE } from "../type/typeCarlist";
 
 const CarlistState = {
   isLoading : false,
@@ -40,6 +40,34 @@ export function filterStateReducer(state = filterState, action) {
         return { ...state, filter: 'medium' };
     case ACTIVITY_CARLIST_FILTER_LARGE:
         return { ...state, filter: 'large' };
+    default:
+      return state;
+  }
+}
+
+const orderTableState = {
+  isLoading : false,
+  data: null,
+  currentPage: 1,
+  pageSize: 10,
+}
+
+export function orderTableStateReducer(state = orderTableState, action) {
+  switch (action.type) {
+    case ACTIVITY_ORDERTABLE_REDUCER_PENDING:
+      return { ...state, isLoading: true, error: false, };
+    case ACTIVITY_ORDERTABLE_REDUCER_FULFILLED:
+      return { ...state, 
+        isLoading: false,  
+        data: action.data,
+        pageSize: action.pageSize
+      };
+    case ACTIVITY_ORDERTABLE_REDUCER_REJECT:
+      return { ...state, isLoading: false, error: true };
+    case ACTIVITY_ORDERTABLE_REDUCER_SETCURRENT_PAGE:
+      return { ...state, currentPage: action.currentPage };
+    case ACTIVITY_ORDERTABLE_REDUCER_SETPAGE:
+      return { ...state, setPageSize: action.setPageSize };
     default:
       return state;
   }

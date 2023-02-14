@@ -2,6 +2,8 @@ import React from "react";
 import { Table } from "antd";
 import APIOrder from "../apis/APIOrder";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { ACTIVITY_ORDERTABLE_REDUCER_FULFILLED, ACTIVITY_ORDERTABLE_REDUCER_SETCURRENT_PAGE, ACTIVITY_ORDERTABLE_REDUCER_SETPAGE } from "../redux/type/typeCarlist";
 
 export function convertUTCtoLocal(utc) {
   if (!utc) return null;
@@ -18,6 +20,8 @@ export function convertNumbertoLocalCurrency(number) {
 
 function OrdersTable() {
   const [data, setData] = useState(null);
+  const dispatch = useDispatch()
+  const orderTable = useSelector((state) => state.orderTableStateReducer)
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
 
@@ -26,11 +30,16 @@ function OrdersTable() {
   };
 
   React.useEffect(() => {
-    APIOrder.getListOrder({ currentPage, pageSize }).then((res) => {
-      setData(res);
-      setPageSize(res.pageSize);
-    });
-  }, [currentPage, pageSize]);
+    APIOrder.getListOrder({ currentPage : orderTable.currentPage, pageSize: orderTable.pageSize }).then((res) => {
+      dispatch({
+        type: ACTIVITY_ORDERTABLE_REDUCER_FULFILLED,
+        data: res,
+        pageSize: res.pageSize
+      })
+      // setData(res);
+      // setPageSize(res.pageSize);
+    }).catch((err) => {});
+  }, [orderTable.pageSize, orderTable.currentPage]);
 
   const columns = [
     {
@@ -38,7 +47,7 @@ function OrdersTable() {
       dataIndex: "id",
       key: "id",
       render: (value, obj, index) => {
-        return <p key={value}>{firstRecordNumber(currentPage, pageSize, index + 1)}</p>;
+        return <p key={value}>{firstRecordNumber(orderTable.currentPage, orderTable.pageSize, index + 1)}</p>;
       },
     },
     {
@@ -107,18 +116,24 @@ function OrdersTable() {
 
   return (
     <div>
-      {data ? (
+      {orderTable.data ? (
         <Table
           style={{ width: "97%", textAlign: "center" }}
           columns={columns}
-          dataSource={data.orders}
+          dataSource={orderTable.data.orders}
           pagination={{
-            defaultCurrent: data.page,
-            pageSize: data.pageSize,
-            total: data.count,
+            defaultCurrent: orderTable.data.page,
+            pageSize: orderTable.data.pageSize,
+            total: orderTable.data.count,
             onChange: (page, pS, sorter) => {
-              setCurrentPage(page);
-              setPageSize(pS);
+              dispatch({
+                type: ACTIVITY_ORDERTABLE_REDUCER_SETCURRENT_PAGE,
+                currentPage: page
+              })
+              dispatch({
+                type: ACTIVITY_ORDERTABLE_REDUCER_SETPAGE,
+                setPageSize: pS
+              })
             },
           }}
         />
